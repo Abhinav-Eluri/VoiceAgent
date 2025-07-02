@@ -69,6 +69,7 @@ async def upload_file(file: UploadFile = File(...)):
         
         # Check if transcript text is empty or None
         transcript_text = transcript.text
+        llm = OllamaLLM(model="llama3.2")
         prompt = f"Summarize this in one very short sentence:\n\n{transcript_text}"
         response = llm.invoke(prompt)
         print(response)
